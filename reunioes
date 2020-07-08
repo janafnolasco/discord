@@ -1,0 +1,14 @@
+# Trigger the workflow on push or pull request
+on: [push, pull_request]
+  POST /repos/{owner}/{repo}/check-runs
+  await octokit.request('POST /repos/{owner}/{repo}/check-runs', {
+  owner: 'GT',
+  repo: 'Reunião HOJE 19:30',
+  name: 'Reunião HOJE 19:30',
+  head_sha: 'head_sha',
+  mediaType: {
+    previews: [
+      'antiope'
+    ]
+  }
+})
